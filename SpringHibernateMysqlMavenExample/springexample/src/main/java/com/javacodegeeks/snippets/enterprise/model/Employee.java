@@ -1,9 +1,6 @@
 package com.javacodegeeks.snippets.enterprise.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "EMPLOYEE")
@@ -18,8 +15,21 @@ public class Employee {
 
 	@Column(name = "AGE", nullable = false)
 	private long age;
-	
-	public Employee() {
+
+    @OneToOne
+    @JoinColumn(name = "ID_ADDRESS")
+    @Column(name = "ADDRESS", nullable = false)
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Employee() {
 	}
 
 	public String getId() {
