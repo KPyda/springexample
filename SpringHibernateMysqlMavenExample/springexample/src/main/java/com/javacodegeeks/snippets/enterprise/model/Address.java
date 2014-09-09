@@ -1,29 +1,33 @@
 package com.javacodegeeks.snippets.enterprise.model;
 
-import javax.persistence.*;
-
 /**
  * Created by Kuba on 2014-09-08.
  */
-@Entity
-@Table(name = "ADDRESS")
+
 public class Address {
-    @Id
-    @Column(name = "ID_ADDRESS", nullable = false)
-    private long id_address;
-    @Column(name = "STREET", nullable = false)
+
+    private long addressID;
     private String street;
-    @Column(name = "POST_CODE", nullable = false)
-    private long post_code;
-    @Column(name = "CITY", nullable = false)
+    private long postcode;
     private String city;
 
+    public Address(){
+    }
+
+    public Address(long id_address, String street, long post_code, String city) {
+        super();
+        this.addressID = id_address;
+        this.street = street;
+        this.postcode = post_code;
+        this.city = city;
+    }
+
     public long getId_address() {
-        return id_address;
+        return addressID;
     }
 
     public void setId_address(long id_address) {
-        this.id_address = id_address;
+        this.addressID = id_address;
     }
 
     public String getStreet() {
@@ -35,11 +39,11 @@ public class Address {
     }
 
     public long getPost_code() {
-        return post_code;
+        return postcode;
     }
 
     public void setPost_code(long post_code) {
-        this.post_code = post_code;
+        this.postcode = post_code;
     }
 
     public String getCity() {

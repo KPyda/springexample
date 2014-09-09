@@ -1,24 +1,20 @@
 package com.javacodegeeks.snippets.enterprise.model;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "EMPLOYEE")
 public class Employee {
 
-	@Id
-	@Column(name = "ID", nullable = false)
-	private String id;
+    public Employee(int id, String name, int age, Address address) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
 
-	@Column(name = "NAME", nullable = false)
+    public Employee() {
+    }
+
+	private int id;
 	private String name;
-
-	@Column(name = "AGE", nullable = false)
-	private long age;
-
-    @OneToOne
-    @JoinColumn(name = "ID_ADDRESS")
-    @Column(name = "ADDRESS", nullable = false)
+	private int age;
     private Address address;
 
     public Address getAddress() {
@@ -29,14 +25,11 @@ public class Employee {
         this.address = address;
     }
 
-    public Employee() {
-	}
-
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -52,7 +45,7 @@ public class Employee {
 		return age;
 	}
 
-	public void setAge(long age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
