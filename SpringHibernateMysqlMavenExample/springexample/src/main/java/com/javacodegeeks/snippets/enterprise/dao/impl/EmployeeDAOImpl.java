@@ -18,7 +18,6 @@ public class EmployeeDAOImpl extends HibernateDaoSupport implements EmployeeDAO 
     @Override
     public Employee findById(int id) {
         return (Employee) template.get(Employee.class, id);
-
     }
 
     @Override

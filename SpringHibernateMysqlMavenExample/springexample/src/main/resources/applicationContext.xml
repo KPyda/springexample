@@ -31,7 +31,16 @@
       </props>
     </property>
   </bean>
-  <bean id="employeeService" class="com.javacodegeeks.snippets.enterprise.service.EmployeeServiceImpl"/>
+
+  <bean id="employeeService" class="com.javacodegeeks.snippets.enterprise.service.EmployeeServiceImpl">
+      <constructor-arg  ref="employeeDAO"/>
+      <constructor-arg  ref="addressDAO"/>
+  </bean>
+
+  <bean id="employeeDAO" class="com.javacodegeeks.snippets.enterprise.dao.impl.EmployeeDAOImpl">
+      <constructor-arg
+  </bean>
+
 
   <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager" 
     p:sessionFactory-ref="sessionFactory">

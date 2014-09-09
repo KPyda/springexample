@@ -29,8 +29,6 @@ public class Main {
         em.setAddress(emAdd);
         EmployeeService emService ;
         emService = (EmployeeService)context.getBean("employeeService");
-        emService.persistEmployee(em);
-        emService.persistAddress(emAdd);
         System.out.println("Updated age :" + emService.findEmployeeById(123).getAge());
         em.setAge(32);
         emService.updateEmployee(em);
